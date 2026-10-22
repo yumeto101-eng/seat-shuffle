@@ -1,0 +1,19 @@
+
+# Javaコンパイル結果
+*.class
+*.jar
+
+# ビルド・配布用
+out/
+dist/
+package/
+package-*/
+
+# EXEファイル
+*.exe
+
+# macOS
+.DS_Store
+
+# エディタ設定
+.vscode/
