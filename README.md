@@ -50,6 +50,18 @@ CSVファイルから生徒情報を読み込み、席番号と氏名を一覧�
 
 ## 実行方法
 
+### Mac版（Apple Silicon）
+
+[最新版をダウンロード](https://github.com/yumeto101-eng/seat-shuffle/releases/latest)
+
+1. `SeatShuffle-macOS-arm64.zip` をダウンロードして解凍
+2. `SeatShuffleLauncher.app` をダブルクリック
+3. ターミナルに表示されるメニューから操作
+
+※ Javaのインストールは不要です。
+※ Intel Macは動作確認対象外です。
+
+
 ### 必要環境
 
 - Java 21（JARを実行する場合）
