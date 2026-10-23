@@ -44,43 +44,23 @@ CSVファイルから生徒情報を読み込み、席番号と氏名を一覧�
 | 開発形式 | コンソールアプリケーション |
 | データ保存 | CSV（UTF-8） |
 | 主な標準ライブラリ | `Scanner`、`List`、`ArrayList`、`Collections`、`Files` |
-| 配布形式 | JAR |
+| ビルド・パッケージ化 | `javac`, `jar`, `jpackage` |
+| 配布形式 | Windows向けEXE |
 
 外部ライブラリやデータベースは使用していません。
 
 ## 実行方法
 
-### Mac版（Apple Silicon）
-
-[最新版をダウンロード](https://github.com/yumeto101-eng/seat-shuffle/releases/latest)
-
-1. `SeatShuffle-macOS-arm64.zip` をダウンロードして解凍
-2. `SeatShuffleLauncher.app` をダブルクリック
-3. ターミナルに表示されるメニューから操作
-
-※ Javaのインストールは不要です。
-※ Intel Macは動作確認対象外です。
+[**最新版をダウンロード**](https://github.com/yumeto101-eng/seat-shuffle/releases/latest)
 
 
 ### 必要環境
 
 - Java 21（JARを実行する場合）
 - JDK 21（ソースコードからコンパイルする場合）
-- ターミナル（macOS）またはPowerShellなど（Windows）
+- PowerShell（Windows）
 
 `students.csv` はプログラムの**実行時のカレントディレクトリ**から読み込まれます。以下のコマンドは、Javaソースファイルと `students.csv` があるプロジェクトのフォルダ内で実行してください。
-
-### macOS：コンパイルして実行
-
-```bash
-mkdir -p out
-javac -encoding UTF-8 --release 21 -d out \
-  MainSeatShuffle.java Student.java SeatMap.java \
-  Shuffle.java InOutCsv.java Register.java
-
-jar cfe seat-shuffle.jar MainSeatShuffle -C out .
-java -jar seat-shuffle.jar
-```
 
 ### Windows：コンパイルして実行（PowerShell）
 
