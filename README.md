@@ -15,8 +15,6 @@ Javaで制作した、**CSVの名簿を使って席替えを行うコンソー�
 
 ## 実行画面
 
-※ 数字は**半角**で入力してください。
-
 ### 1. 生徒情報の一覧表示
 
 CSVファイルから生徒情報を読み込み、席番号と氏名を一覧表示します。
@@ -51,20 +49,27 @@ CSVファイルから生徒情報を読み込み、席番号と氏名を一覧�
 
 ## 実行方法
 
+### 1. Windows版（EXE）
+
 [**最新版をダウンロード**](https://github.com/yumeto101-eng/seat-shuffle/releases/latest)
 
+#### Windows向けEXE版について
 
-### 必要環境
+Windows向けの実行ファイルを配布する場合は、`jpackage` で生成した **EXE・`app`・`runtime` を含むフォルダ一式**を使用します。EXE単体ではなく、配布フォルダ全体が必要です。
+
+### 2. ソースコードから実行
+
+#### 必要環境
 
 - Java 21（JARを実行する場合）
 - JDK 21（ソースコードからコンパイルする場合）
-- PowerShell（Windows）
+- Windows PowerShell または macOSのターミナル
 
 `students.csv` はプログラムの**実行時のカレントディレクトリ**から読み込まれます。以下のコマンドは、Javaソースファイルと `students.csv` があるプロジェクトのフォルダ内で実行してください。
 
-### Windows：コンパイルして実行（PowerShell）
+#### コンパイルして実行
 
-```powershell
+```Windows（powershell）
 New-Item -ItemType Directory -Path .\out -Force | Out-Null
 javac -encoding UTF-8 --release 21 -d .\out MainSeatShuffle.java Student.java SeatMap.java Shuffle.java InOutCsv.java Register.java
 
@@ -72,13 +77,33 @@ jar cfe seat-shuffle.jar MainSeatShuffle -C out .
 java -jar seat-shuffle.jar
 ```
 
+```macOS（ターミナル）
+mkdir -p out
+
+javac -encoding UTF-8 --release 21 -d out MainSeatShuffle.java Student.java SeatMap.java Shuffle.java InOutCsv.java Register.java
+
+jar cfe seat-shuffle.jar MainSeatShuffle -C out .
+
+java -jar seat-shuffle.jar
+```
+
 JARを作成済みの場合は、プロジェクトのフォルダで `java -jar seat-shuffle.jar` を実行するだけで起動できます。
 
-### Windows向けEXE版について
+## 操作方法
 
-Windows向けの実行ファイルを配布する場合は、`jpackage` で生成した **EXE・`app`・`runtime` を含むフォルダ一式**を使用します。EXE単体ではなく、配布フォルダ全体が必要です。
+1. メインメニューから「生徒情報の表示」または「座席表の表示・席替え」を選択します。
 
-※ Windows版のダウンロードリンクは、GitHub Releasesで公開する際に追加します。
+2. 席替えを行う場合は、座席の列数と行数を指定します。
+
+3. 現在の座席表を確認し、席替えを実行するか選択します。
+
+4. 空席がある場合は、必要に応じて空席にする席番号を指定します。
+
+5. シャッフル後の座席表を確認します。
+
+6. 保存を選択すると、結果が students.csv に上書きされます。
+
+※ 数字は半角で入力してください。
 
 ## CSVデータについて
 
